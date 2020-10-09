@@ -1,12 +1,12 @@
-# !!!Replace with your unique project name!!!
+# The Colorblind Test
 
 ## Description
 
-!!!Replace with a description of what your program does!!!
+This program will use both the colors red and green to determine if you are colorblind or not.
 
 ## Developer
 
-!!!Replace with your name!!!
+Ryan McKinney
 
 ## Example
 
