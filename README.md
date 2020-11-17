@@ -2,7 +2,8 @@
 
 ## Description
 
-This program will use both the colors red and green to determine if you are colorblind or not.
+# v0.2 Updates
+This program will use four photos of traffic lights to determine if you are colorblind and what type of colorblind you are.
 
 ## Developer
 
@@ -27,19 +28,19 @@ Here is an example of the program running:
 
 ### Variables and Data Types
 
-I have used three data types to declare my variables. I have used string to determine the name and colors the user sees. I used fstream to establish a file and output it if the user chooses. I finally used char to ask if the user would like to learn more about colorblindness.
+I have used three different data types for my variables. String, char, and fstream. I used the string variable to ask the name of the user and the filename of the colorblind article. I used the char variable to store the user's answers to the traffic light tests. Finally, I used the fstream varible to call the colorblind article file.
 
 ### Input and Output
 
-Output has been used effectively my informing the user what the program does and helps explain how the test will work. The input works effectively by taking the user's name, how they see colors, and if they want to learn more about colorblindness.
+Input has been used effectively by asking the user for their name, how they see colors for each traffic light picture, and if the user would like to learn more about colorblindness. The output has been used effectively by outputting information about how the program works and which test they are answering and if they would like to learn more about colorblindness.
 
 ### Decisions
 
-I have used an if statement that determines if the user does not see the color red as red and the color green as green. Following that, I have included an else statement that lets the user know if they are not colorblind.
+I have used several if statements to determine what type of colorblindness the user may or may not have and if they want to view the colorblind information file.
 
 ### Iteration
 
-I used a while loop to open the colorblind information file. I the user wants to learn more, they simply type 'y' and the while loop will open the file for them.
+I used a while loop to open the colorblind information file. I the user wants to learn more, they simply type 'y' and the while loop will open the file for them. I also implemented a for loop that will print 'Test 1/2/3/4' before the program recieves the test answers. 
 
 ### File Input and Output
 

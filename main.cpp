@@ -1,12 +1,11 @@
 #include <iostream>
 #include <fstream>
-#include "colormod.h"
+#include <vector>
 
 using namespace std;
-Color::Modifier red(Color::FG_RED);
-Color::Modifier green(Color::FG_GREEN);
-Color::Modifier def(Color::FG_DEFAULT);
 
+vector <char> userAnswer(vector <char>);
+void colorBlindWebsite();
 
 int main()
 {
@@ -14,9 +13,7 @@ int main()
   char y;
   fstream fileReader;
   string fileName = "colorblindinfo.txt";
-  string redColor;
-  string greenColor;
-
+  vector <char> answers;
 
 
   cout << "This program will help you figure out if you are colorblind." << endl;
@@ -24,24 +21,46 @@ int main()
   cout << "What is your name? ";
   cin >> name;
 
-  cout << "Ok, " << name << ", we will use red, and green colored text, the colors of a stoplight to determine if you are colorblind. (minus the yellow, I need to figure that out :) )" << endl;
+  cout << "Ok, " << name << ", we will use four different pictures of stoplights to determine if you are colorblind." << endl;
 
-  cout << red << "What does the color of this text look like to you?: 12345abcdefgh" << def << endl;
-  cin >> redColor;
+  cout << name << ", click on the file called 'Test 1' and type 'y' if the traffic light colors look normal to you or 'n' if the colors do not look normal. Repeat this process for tests 2-4." << endl;
+  userAnswer(answers);
 
-  cout << green << "What does the color of this text look like to you: 12345abdefgh" << def << endl;
-  cin >> greenColor;
+  colorBlindWebsite();
 
-  if(redColor != "red" || greenColor != "green")
-    {
-      cout << "You are colorblind." << endl;
-    }else
-    {
-      cout << "You are not colorblind." << endl;
-    }
+  return 0;
+}
 
-  cout << "Would you like to learn more about colorblindness? Type 'y' for a wikipedia article link on colorblindness or 'n' if you are not interested." << endl;
-  cin >> y;
+//function definitions
+vector <char> userAnswer(vector <char> answers){
+  char input;
+
+  for(int i = 1; i <= 4; i++){
+    cout << "Test: " << i << " ";
+    cin >> input;
+    answers.push_back(input);
+  }
+  if(answers[0] == 'y' && answers[1] == 'n' && answers[2]== 'n' && answers[3] == 'n'){
+    cout << "You are not colorblind." << endl;
+  }
+  if(answers[0] == 'n' && answers[1] == 'y' && answers[2]== 'n' && answers[3] == 'n'){
+    cout << "You are colorblind. The type of colorblindness you have is called deuternomalia." << endl;
+  }
+  if(answers[0] == 'n' && answers[1] == 'n' && answers[2]== 'y' && answers[3] == 'n'){
+    cout << "You are colorblind. The type of colorblindness you have is called protanopia." << endl;
+  }
+  if(answers[0] == 'n' && answers[1] == 'n' && answers[2]== 'n' && answers[3] == 'y'){
+    cout << "You are colorblind. The type of colorblindess you have is called tritanopia." << endl;
+  }
+}
+
+void colorBlindWebsite(){
+  fstream fileReader;
+  string fileName = "colorblindinfo.txt";
+  char y;
+
+cout << "Would you like more information on colorblindess? Type y for yes and copy the link in your browser or type no for no." << endl;
+cin >> y;
 
   while(y == 'y'){
     fileReader.open(fileName, ios::in);
@@ -50,6 +69,4 @@ int main()
     break;
     fileReader.close();
   }
-
-  return 0;
 }
